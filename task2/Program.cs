@@ -16,6 +16,21 @@ int[,] table = FillArray(rows, columns);
 
 PrintArray(table);
 
+Console.WriteLine("Введите позицию в столбце: ");
+int columnsPosition = int.Parse(Console.ReadLine());
+Console.WriteLine("Введите позицию в строке: ");
+int rowsPosition = int.Parse(Console.ReadLine());
+
+if (rowsPosition < table.GetLength(0) && columnsPosition < table.GetLength(1))
+{
+    Console.WriteLine($"число с данной позицией равно {table[rowsPosition, columnsPosition]}");
+}
+else
+{
+    Console.WriteLine($"{rowsPosition};{columnsPosition} -> такого числа в массиве нет");
+}
+
+
 int[,] FillArray(int m, int n)
 {
     int[,] result = new int[m, n];
@@ -39,17 +54,4 @@ void PrintArray(int[,] inArray)
         }
         Console.WriteLine();
     }
-}
-Console.WriteLine("Введите позицию в столбце: ");
-int columnsPosition = int.Parse(Console.ReadLine());
-Console.WriteLine("Введите позицию в строке: ");
-int rowsPosition = int.Parse(Console.ReadLine());
-
-if (rowsPosition < table.GetLength(0) && columnsPosition < table.GetLength(1))
-{
-    Console.WriteLine($"число с данной позицией равно {table[rowsPosition, columnsPosition]}");
-}
-else
-{
-    Console.WriteLine($"{rowsPosition};{columnsPosition} -> такого числа в массиве нет");
 }
